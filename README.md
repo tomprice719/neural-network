@@ -53,6 +53,7 @@ You can also use the "perform" function to see an example of the outputs of the 
 For example, (perform trained) may print the following to the console:
 
 \#\<BasicVector [ 0.000,  0.000,  0.000,  0.000,  1.000,  0.000,  0.000,  0.000,  0.000,  0.000 ]\>
+
 \#\<BasicVector [ 0.000,  0.199,  0.034,  0.001,  0.215,  0.007,  0.005,  0.003,  0.014,  0.013 ]\>
 
 The first vector is the label of the randomly chosen MNIST sample. It is the target that the neural network is trying to guess. The 1.0 in the 5th column means that the randomly chosen sample was the 5th of the digits 0 - 9, in other words, a 4. The second vector is the outputs of the neural network when it is fed the pixels in the image of the 4. As you can see, the output is highest in the 5th column, which means the network guessed correctly. There is also a relatively large value in the 2nd column, which means that it was ambiguous to the network whether the digit was a 1 or a 4. But it still gave the larger value for the 4 and therefore guessed correctly.
