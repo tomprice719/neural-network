@@ -8,10 +8,8 @@
 ;;where "weights" is a sequence of la4j matrices representing the weights at each layer,
 ;;and "biases" is a sequence of la4j vectors representing the biases at each layer
 
-(def mnist (MNIST.))
-
 (defn init-mnist []
-  (.initialize mnist))
+  (mnist/initialize))
 
 (def num-pixels (* 28 28))
 
@@ -35,13 +33,13 @@
 
 (defn training-sample []
   "Gives a random sample from the MNIST training data, represented as a vector [pixels labels]."
-  (let [jSample (.getTraining mnist)]
+  (let [jSample (mnist/getTraining)]
     [(.pixels jSample)
      (.labels jSample)]))
 
 (defn test-jsample []
   "Gives a random sample from the MNIST test data, represented as a Sample object."
-  (.getTest mnist))
+  (mnist/getTest))
 
 (defn test-sample []
    "Gives a random sample from the MNIST test data, represented as a vector [pixels labels]."

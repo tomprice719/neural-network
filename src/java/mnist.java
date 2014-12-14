@@ -6,16 +6,16 @@ import org.la4j.vector.Vector;
 import org.la4j.vector.dense.BasicVector;
 import au.com.bytecode.opencsv.CSVReader;
 
-public class MNIST {
+public class mnist {
 	//Class for retrieving samples from MNIST database
 	//When initialize() is called, it loads all samples into memory from CSV files
 	//Training and test samples can then be retrieved via getTraining and getTest
 	
-	Sample[] training = null;
-	Sample[] test = null;
-	Random rand = new Random();
+	static Sample[] training = null;
+	static Sample[] test = null;
+	static Random rand = new Random();
 
-	public class Sample {
+	public static class Sample {
 		public Vector pixels;
 		public Vector labels;
 		public int labelIndex;
@@ -44,7 +44,7 @@ public class MNIST {
 		}
 	}
 
-	private Sample[] getSamples(String filename, int numRows) {
+	private static Sample[] getSamples(String filename, int numRows) {
 		//Load samples from CSV file
     	Sample[] s = new Sample[numRows];
         try {
@@ -67,15 +67,15 @@ public class MNIST {
 		}
 	}
 
-	public Sample getTraining() {
+	public static Sample getTraining() {
 		return training[rand.nextInt(60000)];
 	}
 
-	public Sample getTest() {
+	public static Sample getTest() {
 		return test[rand.nextInt(10000)];
 	}
 
-	public void initialize() {
+	public static void initialize() {
 		if(training == null) {
 			training = getSamples("resources/mnist_train.csv", 60000);
 		}
